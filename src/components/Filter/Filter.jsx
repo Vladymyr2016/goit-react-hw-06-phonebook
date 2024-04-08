@@ -1,6 +1,5 @@
-import { nanoid } from 'nanoid';
 import React from 'react';
-import { Form, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { filterContact } from '../../redux/actions';
 
