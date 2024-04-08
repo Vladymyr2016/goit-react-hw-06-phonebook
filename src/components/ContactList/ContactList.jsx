@@ -7,12 +7,10 @@ const ContactList = () => {
   const contacts = useSelector(selectPhoneBook);
   const filter = useSelector(selectFilter);
 
-  console.log(filter);
-
   const getFilteredContacts = contacts.filter(contact => {
+    console.log(contact.title.toLowerCase().includes(filter.toLowerCase()));
     return contact.title.toLowerCase().includes(filter.toLowerCase());
   });
-
   return (
     <>
       <ul>
