@@ -36,12 +36,6 @@ export const phoneBookReduser = (state = initialState, action) => {
           ...state.filters,
           name: action.payload,
         },
-        contacts: {
-          ...state.contacts,
-          items: state.contacts.items.filter(item =>
-            item.title.includes(action.payload)
-          ),
-        },
       };
 
     default:

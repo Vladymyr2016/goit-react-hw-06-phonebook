@@ -10,7 +10,6 @@ const FormInput = () => {
   const dispatch = useDispatch();
   const { register, handleSubmit, reset } = useForm();
   const submit = ({ title, number }) => {
-    console.log(title);
     const newContact = {
       id: nanoid(),
       title,
@@ -18,7 +17,6 @@ const FormInput = () => {
       completed: false,
     };
     dispatch(addContact(newContact));
-    console.log(newContact);
     reset();
   };
 
