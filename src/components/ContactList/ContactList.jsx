@@ -6,16 +6,18 @@ import { selectFilter, selectPhoneBook } from '../../redux/selectors';
 const ContactList = () => {
   const contacts = useSelector(selectPhoneBook);
   const filter = useSelector(selectFilter);
-  console.log(selectFilter);
-  const filteredContacts = contacts.filter(contact =>
-    contact.title.toLowerCase().includes(filter.toLowerCase())
-  );
+
+  console.log(filter);
+
+  const getFilteredContacts = contacts.filter(contact => {
+    return contact.title.toLowerCase().includes(filter.toLowerCase());
+  });
 
   return (
     <>
       <ul>
         <div>
-          {filteredContacts.map(contact => {
+          {getFilteredContacts.map(contact => {
             return <Contact key={contact.id} {...contact} />;
           })}
         </div>

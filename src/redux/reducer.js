@@ -10,6 +10,7 @@ const initialState = {
 };
 
 export const phoneBookReduser = (state = initialState, action) => {
+  console.log(action);
   switch (action.type) {
     case REMOVE_CONTACT:
       return {
@@ -33,7 +34,6 @@ export const phoneBookReduser = (state = initialState, action) => {
       return {
         ...state,
         filters: {
-          ...state.filters,
           name: action.payload,
         },
       };
