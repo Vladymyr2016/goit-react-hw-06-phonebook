@@ -1,4 +1,4 @@
-import { ADD_CONTACT, REMOVE_CONTACT } from './constants';
+import { ADD_CONTACT, FILTER_CONTACT, REMOVE_CONTACT } from './constants';
 
 const initialState = {
   contacts: {
@@ -29,6 +29,21 @@ export const phoneBookReduser = (state = initialState, action) => {
           items: [...state.contacts.items, action.payload],
         },
       };
+    case FILTER_CONTACT:
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          name: action.payload,
+        },
+        contacts: {
+          ...state.contacts,
+          items: state.contacts.items.filter(item =>
+            item.title.includes(action.payload)
+          ),
+        },
+      };
+
     default:
       return state;
   }

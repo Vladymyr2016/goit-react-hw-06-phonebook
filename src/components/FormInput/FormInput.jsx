@@ -32,9 +32,7 @@ const FormInput = () => {
           name="title"
         />
 
-        {/* <input type="text" {...register('title')} name="name" required /> */}
         <p className={s.name}>Number</p>
-        {/* <input type="tel" {...register('number')} name="number" required /> */}
         <input
           type="tel"
           {...register('number', { required: true })}

@@ -1,4 +1,4 @@
-/* @import-normalize;
+@import-normalize;
 
 bring in normalize.css styles body {
   margin: 0;
@@ -10,4 +10,6 @@ bring in normalize.css styles body {
 
 body {
   margin: 0 auto;
-} */
+  background-color: aqua;
+  padding: 0 10px;
+}
