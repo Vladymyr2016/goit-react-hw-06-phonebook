@@ -1,23 +1,18 @@
-import React from 'react';
 import Contact from 'components/Contact/Contact';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { selectPhoneBook } from '../../redux/selectors';
 
-const ContactList = ({ contacts, onDeleteContact, filter }) => {
-  const newArr = contacts.filter(contact =>
-    contact.name.toLowerCase().includes(filter.toLowerCase())
-  );
+const ContactList = () => {
+  const contacts = useSelector(selectPhoneBook);
+  console.log(contacts);
 
   return (
     <>
       <ul>
         <div>
-          {newArr.map(contact => {
-            return (
-              <Contact
-                key={contact.id}
-                {...contact}
-                onDeleteContact={onDeleteContact}
-              />
-            );
+          {contacts.map(contact => {
+            return <Contact key={contact.id} {...contact} />;
           })}
         </div>
       </ul>

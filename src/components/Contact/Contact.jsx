@@ -1,15 +1,17 @@
 import React from 'react';
+import s from './Contact.css';
+import { useDispatch } from 'react-redux';
+import { removeContact } from '../../redux/actions';
 
-const Contact = ({ name, number, id, onDeleteContact }) => {
+const Contact = ({ id, title }) => {
+  const dispatch = useDispatch();
   return (
-    <>
-      <li key={id}>
-        {name} {number}
-        <button type="submit" onClick={() => onDeleteContact(id)}>
-          Delete
-        </button>
-      </li>
-    </>
+    <li key={id}>
+      <h2 className={s.title}>{title}</h2>
+      <button type="submit" onClick={() => dispatch(removeContact(id))}>
+        Delete
+      </button>
+    </li>
   );
 };
 

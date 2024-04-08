@@ -1,29 +1,45 @@
-import React, { useState } from 'react';
+import React from 'react';
+
+import { useForm } from 'react-hook-form';
 import s from './FormInput.module.css';
+import { nanoid } from 'nanoid';
+import { useDispatch } from 'react-redux';
+import { addContact } from '../../redux/actions';
 
-const FormInput = ({ addContact }) => {
-  const [state, setState] = useState({
-    name: '',
-    number: '',
-  });
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    addContact(state);
-    setState(prevState => ({ ...prevState, name: '', number: '' }));
-  };
-  console.log(state);
-  const handleChange = e => {
-    setState({ ...state, [e.target.name]: e.target.value });
+const FormInput = () => {
+  const dispatch = useDispatch();
+  const { register, handleSubmit, reset } = useForm();
+  const submit = ({ title, number }) => {
+    console.log(title);
+    const newContact = {
+      id: nanoid(),
+      title,
+      number,
+      completed: false,
+    };
+    dispatch(addContact(newContact));
+    console.log(newContact);
+    reset();
   };
 
   return (
     <div className={s.formInput}>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit(submit)}>
         <p className={s.name}>Name</p>
-        <input type="text" name="name" required onChange={handleChange} />
-        <input type="tel" name="number" required onChange={handleChange} />
+        <input
+          type="text"
+          {...register('title', { required: true })}
+          name="title"
+        />
+
+        {/* <input type="text" {...register('title')} name="name" required /> */}
         <p className={s.name}>Number</p>
+        {/* <input type="tel" {...register('number')} name="number" required /> */}
+        <input
+          type="tel"
+          {...register('number', { required: true })}
+          name="number"
+        />
         <button type="submit">Add contact</button>
       </form>
     </div>
