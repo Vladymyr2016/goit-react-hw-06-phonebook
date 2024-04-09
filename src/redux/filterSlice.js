@@ -12,7 +12,6 @@ const slice = createSlice({
   },
   selectors: {
     selectFilter: state => {
-      console.log(state);
       return state.filters;
     },
   },

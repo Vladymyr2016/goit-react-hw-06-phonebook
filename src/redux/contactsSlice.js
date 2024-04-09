@@ -21,7 +21,6 @@ const slice = createSlice({
   },
   selectors: {
     selectPhoneBook: state => {
-      console.log(state);
       return state.contacts.items;
     },
   },
