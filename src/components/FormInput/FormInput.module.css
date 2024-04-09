@@ -1,13 +1,33 @@
 .formInput {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
     width: 200px;
     height: 300px;
     border: 1px solid black;
     padding-left: 10px;
+    border-radius: 10px;
+    background-color: beige;
+
+}
+
+.fild {
+    padding: 10px;
+    margin-bottom: 10px;
 }
 
 .name {
-    color: green;
+    color: blue;
     height: 50px;
-    padding-left: 10px;
-    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn {
+    background-color: lightblue;
+    color: blue;
+    align-items: center;
+    justify-content: center;
 }

@@ -25,6 +25,7 @@ const FormInput = () => {
       <form onSubmit={handleSubmit(submit)}>
         <p className={s.name}>Name</p>
         <input
+          className={s.fild}
           type="text"
           {...register('title', { required: true })}
           name="title"
@@ -32,11 +33,14 @@ const FormInput = () => {
 
         <p className={s.name}>Number</p>
         <input
+          className={s.fild}
           type="tel"
           {...register('number', { required: true })}
           name="number"
         />
-        <button type="submit">Add contact</button>
+        <button className={s.btn} type="submit">
+          Add contact
+        </button>
       </form>
     </div>
   );
