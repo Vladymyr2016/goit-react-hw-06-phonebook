@@ -20,7 +20,10 @@ const slice = createSlice({
     },
   },
   selectors: {
-    selectPhoneBook: state => state.phoneBook.contacts.items,
+    selectPhoneBook: state => {
+      console.log(state);
+      return state.contacts.items;
+    },
   },
 });
 

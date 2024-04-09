@@ -7,10 +7,15 @@ const slice = createSlice({
   },
   reducers: {
     filterContact: (state, action) => {
-      state.name = action.payload;
+      state.filters = action.payload;
     },
   },
-  selectors: { selectFilter: state => state.filter.filters.name },
+  selectors: {
+    selectFilter: state => {
+      console.log(state);
+      return state.filters;
+    },
+  },
 });
 
 export const filterReducer = slice.reducer;
