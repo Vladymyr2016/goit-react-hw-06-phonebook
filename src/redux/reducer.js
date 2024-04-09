@@ -1,4 +1,5 @@
-import { ADD_CONTACT, FILTER_CONTACT, REMOVE_CONTACT } from './constants';
+import { createReducer } from '@reduxjs/toolkit';
+import { addContact, filterContact, removeContact } from './actions';
 
 const initialState = {
   contacts: {
@@ -9,36 +10,17 @@ const initialState = {
   },
 };
 
-export const phoneBookReduser = (state = initialState, action) => {
-  console.log(action);
-  switch (action.type) {
-    case REMOVE_CONTACT:
-      return {
-        ...state,
-        contacts: {
-          ...state.contacts,
-          items: state.contacts.items.filter(
-            item => item.id !== action.payload
-          ),
-        },
-      };
-    case ADD_CONTACT:
-      return {
-        ...state,
-        contacts: {
-          ...state.contacts,
-          items: [...state.contacts.items, action.payload],
-        },
-      };
-    case FILTER_CONTACT:
-      return {
-        ...state,
-        filters: {
-          name: action.payload,
-        },
-      };
-
-    default:
-      return state;
-  }
-};
+export const phoneBookReduser = createReducer(initialState, builder => {
+  builder
+    .addCase(removeContact, (state, action) => {
+      state.contacts.items = state.contacts.items.filter(
+        item => item.id !== action.payload
+      );
+    })
+    .addCase(addContact, (state, action) => {
+      state.contacts.items.push(action.payload);
+    })
+    .addCase(filterContact, (state, action) => {
+      state.filters.name = action.payload;
+    });
+});

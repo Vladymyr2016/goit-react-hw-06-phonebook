@@ -1,8 +1,6 @@
-import { REMOVE_CONTACT, ADD_CONTACT, FILTER_CONTACT } from './constants';
+import { createAction } from '@reduxjs/toolkit';
 
-export const removeContact = id => ({ type: REMOVE_CONTACT, payload: id });
-export const addContact = contact => ({ type: ADD_CONTACT, payload: contact });
-export const filterContact = value => ({
-  type: FILTER_CONTACT,
-  payload: value,
-});
+
+export const removeContact = createAction('removeContact');
+export const addContact = createAction('addContact');
+export const filterContact = createAction('filterContact');

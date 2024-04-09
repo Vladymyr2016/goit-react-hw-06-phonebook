@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import s from './FormInput.module.css';
 import { nanoid } from 'nanoid';
 import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/actions';
+import { addContact } from '../../redux/contactsSlice';
 
 const FormInput = () => {
   const dispatch = useDispatch();

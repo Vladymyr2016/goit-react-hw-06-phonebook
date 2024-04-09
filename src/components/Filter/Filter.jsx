@@ -1,13 +1,12 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { filterContact } from '../../redux/actions';
+import { filterContact } from '../../redux/filterSlice';
 
 const Filter = () => {
   const dispatch = useDispatch();
 
   const submit = e => {
     e.preventDefault();
-    console.log(e.target.value);
     dispatch(filterContact(e.target.value));
   };
   return (
