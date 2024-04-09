@@ -9,6 +9,9 @@ const ContactList = () => {
   const contacts = useSelector(selectPhoneBook);
   const filter = useSelector(selectFilter);
 
+  console.log(contacts);
+  console.log(filter);
+
   const getFilteredContacts = contacts.filter(contact => {
     console.log(contact);
     return contact.title.toLowerCase().includes(filter.toLowerCase());

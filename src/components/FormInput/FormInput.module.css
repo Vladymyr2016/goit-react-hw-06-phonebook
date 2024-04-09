@@ -6,7 +6,6 @@
     width: 200px;
     height: 300px;
     border: 1px solid black;
-    padding-left: 10px;
     border-radius: 10px;
     background-color: beige;
 
@@ -15,11 +14,13 @@
 .fild {
     padding: 10px;
     margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .name {
     color: blue;
-    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;

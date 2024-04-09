@@ -20,7 +20,7 @@ const slice = createSlice({
     },
   },
   selectors: {
-    selectPhoneBook: state => state.contacts.items,
+    selectPhoneBook: state => state.phoneBook.contacts.items,
   },
 });
 
